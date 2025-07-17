@@ -9,7 +9,7 @@ No configuration as of now.
 ### Compatibility
 
 Supported Game Versions:
- - v70+: Unsupported (for now)
+ - v70+: Supported
  - v64-v67: Supported
  - v60-v62: Untested
  - v50-v56: Untested
