@@ -10,7 +10,7 @@ namespace AccurateApparatus
     {
         private const string modGUID = "rogan.AccurateApparatus";
         private const string modName = "Accurate Apparatus";
-        private const string modVersion = "3.0.0";
+        private const string modVersion = "3.0.1";
 
         private readonly Harmony harmony = new Harmony(modGUID);
 

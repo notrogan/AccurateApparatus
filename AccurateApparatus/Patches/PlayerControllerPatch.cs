@@ -1,6 +1,8 @@
 ﻿using GameNetcodeStuff;
 using HarmonyLib;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace AccurateApparatus.Patches
@@ -13,8 +15,10 @@ namespace AccurateApparatus.Patches
         public static int ClientId;
         public static string PlayerUsername;
 
-        public static int Health = 0; 
+        public static int Health = 0;
         public static float Timer = 0f;
+
+        public static int[] PlayerHealth = new int[4];
 
         [HarmonyPatch("Update")]
         [HarmonyPostfix]
@@ -42,7 +46,6 @@ namespace AccurateApparatus.Patches
                                     if (Timer > 1.7f)
                                     {
                                         Health = __instance.health;
-                                        AccurateApparatusBase.mls.LogInfo(Health);
 
                                         if (Health == 0)
                                         {
@@ -50,11 +53,12 @@ namespace AccurateApparatus.Patches
                                             return;
                                         }
 
-                                        if (Health < 10)
+                                        //local indicator
+                                        if (Health < 100)
                                         {
                                             __instance.bleedingHeavily = true;
-                                        } 
-                                        
+                                        }
+
                                         if (Health > 0 && Health <= 20)
                                         {
                                             __instance.health -= 3;
